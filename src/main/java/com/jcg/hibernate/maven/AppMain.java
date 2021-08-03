@@ -1,13 +1,11 @@
 package com.jcg.hibernate.maven;
 
 import java.util.Date;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-
 import com.jcg.hibernate.maven.dao.StudentDao;
 import com.jcg.hibernate.maven.dao.StudentDaoImpl;
 import com.jcg.hibernate.maven.dao.UserDao;
