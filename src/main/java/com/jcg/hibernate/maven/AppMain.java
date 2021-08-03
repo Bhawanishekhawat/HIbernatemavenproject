@@ -13,9 +13,8 @@ import com.jcg.hibernate.maven.dao.StudentDaoImpl;
 import com.jcg.hibernate.maven.dao.UserDao;
 import com.jcg.hibernate.maven.dao.UserDaoImpl;
 
-public class AppMain {
+public  class AppMain {
 
-	static Session sessionObj;
 	static SessionFactory sessionFactoryObj;
 
 	private static SessionFactory buildSessionFactory() {
@@ -34,6 +33,10 @@ public class AppMain {
 		// Creating Hibernate SessionFactory Instance
 		sessionFactoryObj = configObj.buildSessionFactory(serviceRegistryObj);
 		return sessionFactoryObj;
+		
+		
+	
+		
 	}
 
 	// static method
@@ -46,8 +49,6 @@ public class AppMain {
 	public static void main(String[] args) {
 		System.out.println(".......Hibernate Maven Example.......\n");
 		try {
-			sessionObj = buildSessionFactory().openSession();
-			sessionObj.beginTransaction();
 
 			Student stobj = new Student();
 
@@ -81,17 +82,8 @@ public class AppMain {
 			System.out.println("/n Student data saved succesfully /n");
 
 			// Committing The Transactions To The Database
-			sessionObj.getTransaction().commit();
 		} catch (Exception sqlException) {
-			if (null != sessionObj.getTransaction()) {
 				System.out.println("\n.......Transaction Is Being Rolled Back.......");
-				sessionObj.getTransaction().rollback();
 			}
-			sqlException.printStackTrace();
-		} finally {
-			if (sessionObj != null) {
-				sessionObj.close();
-			}
-		}
+		} 
 	}
-}
