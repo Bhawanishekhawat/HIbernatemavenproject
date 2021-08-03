@@ -9,9 +9,15 @@
 
 		<!-- Database Connection Settings -->
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+<<<<<<< HEAD
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/storageDb</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">Karan@5t</property>
+=======
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernateDb</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+>>>>>>> c9ce8a4cf74078c894b645cd631c77c93ca58127
 		<property name="show_sql">true</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>

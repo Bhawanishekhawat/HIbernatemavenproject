@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 com/jcg/hibernate/maven/dao/UserDao.class
 com/jcg/hibernate/maven/AppMain.class
 com/jcg/hibernate/maven/dao/UserDaoImpl.class
@@ -5,3 +6,12 @@ com/jcg/hibernate/maven/Student.class
 com/jcg/hibernate/maven/dao/StudentDao.class
 com/jcg/hibernate/maven/dao/StudentDaoImpl.class
 com/jcg/hibernate/maven/User.class
+=======
+com\jcg\hibernate\maven\Student.class
+com\jcg\hibernate\maven\dao\StudentDao.class
+com\jcg\hibernate\maven\AppMain.class
+com\jcg\hibernate\maven\dao\UserDaoImpl.class
+com\jcg\hibernate\maven\dao\StudentDaoImpl.class
+com\jcg\hibernate\maven\dao\UserDao.class
+com\jcg\hibernate\maven\User.class
+>>>>>>> c9ce8a4cf74078c894b645cd631c77c93ca58127

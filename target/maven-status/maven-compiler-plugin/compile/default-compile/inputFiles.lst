@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /Users/bhawanisingh/Desktop/Hibernatemavenproject/src/main/java/com/jcg/hibernate/maven/Student.java
 /Users/bhawanisingh/Desktop/Hibernatemavenproject/src/main/java/com/jcg/hibernate/maven/AppMain.java
 /Users/bhawanisingh/Desktop/Hibernatemavenproject/src/main/java/com/jcg/hibernate/maven/dao/UserDao.java
@@ -5,3 +6,12 @@
 /Users/bhawanisingh/Desktop/Hibernatemavenproject/src/main/java/com/jcg/hibernate/maven/dao/StudentDao.java
 /Users/bhawanisingh/Desktop/Hibernatemavenproject/src/main/java/com/jcg/hibernate/maven/User.java
 /Users/bhawanisingh/Desktop/Hibernatemavenproject/src/main/java/com/jcg/hibernate/maven/dao/StudentDaoImpl.java
+=======
+D:\Projects\git\Hibernatemavenproject\src\main\java\com\jcg\hibernate\maven\dao\StudentDao.java
+D:\Projects\git\Hibernatemavenproject\src\main\java\com\jcg\hibernate\maven\AppMain.java
+D:\Projects\git\Hibernatemavenproject\src\main\java\com\jcg\hibernate\maven\dao\UserDaoImpl.java
+D:\Projects\git\Hibernatemavenproject\src\main\java\com\jcg\hibernate\maven\dao\UserDao.java
+D:\Projects\git\Hibernatemavenproject\src\main\java\com\jcg\hibernate\maven\User.java
+D:\Projects\git\Hibernatemavenproject\src\main\java\com\jcg\hibernate\maven\dao\StudentDaoImpl.java
+D:\Projects\git\Hibernatemavenproject\src\main\java\com\jcg\hibernate\maven\Student.java
+>>>>>>> c9ce8a4cf74078c894b645cd631c77c93ca58127
