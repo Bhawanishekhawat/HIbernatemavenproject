@@ -11,6 +11,12 @@ import javax.persistence.Table;
 @Table(name = "student_table")
 public class Student implements Serializable {
 
+	@Override
+	public String toString() {
+		return "Student [rollNo=" + rollNo + ", studentName=" + studentName + ", studentClass=" + studentClass
+				+ ", age=" + age + "]";
+	}
+
 	/**
 	 * 
 	 */

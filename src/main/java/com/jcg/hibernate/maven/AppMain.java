@@ -57,18 +57,24 @@ public  class AppMain {
 
 			User userObj = new User();
 
-			userObj.setUserid(108);
-			userObj.setUsername("Shyam ");
-			userObj.setCreatedBy("Admin");
+			userObj.setUserid(109);
+			userObj.setUsername("vidhya ");
+			userObj.setCreatedBy("users");
 			userObj.setCreatedDate(new Date());
+			
 
 //				sessionObj.save(userObj);
 
 			StudentDao sdiobj = new StudentDaoImpl();
-			sdiobj.saveStudent(stobj);
+        	sdiobj.saveStudent(stobj);
+			sdiobj.getbyId(11);
+		//	sdiobj.delete(11);
+			sdiobj.updateid(11);
 
 			UserDao udiobj = new UserDaoImpl();
 			udiobj.saveuser(userObj);
+			udiobj.getbyId(108);
+			udiobj.updateid(108);
 
 			System.out.println("\n.......Records Saved Successfully To The Database.......\n");
 
@@ -76,7 +82,11 @@ public  class AppMain {
 //		AppMain  am = new AppMain();
 //		am.addStudent();
 //			sessionObj.save(stobj);
-
+            
+			
+			
+			
+			
 			System.out.println("/n Student data saved succesfully /n");
 
 			// Committing The Transactions To The Database

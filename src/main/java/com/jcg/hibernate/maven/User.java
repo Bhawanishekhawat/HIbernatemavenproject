@@ -11,6 +11,12 @@ import javax.persistence.Table;
 @Table(name = "user_table")
 public class User {
 
+	@Override
+	public String toString() {
+		return "User [userid=" + userid + ", username=" + username + ", createdBy=" + createdBy + ", createdDate="
+				+ createdDate + "]";
+	}
+
 	@Id
 	@Column(name = "user_id")
 	private Integer userid;
