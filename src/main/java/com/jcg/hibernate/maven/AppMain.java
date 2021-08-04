@@ -19,8 +19,7 @@ public class AppMain {
 	private static SessionFactory buildSessionFactory() {
 		// Creating Configuration Instance & Passing Hibernate Configuration File
 		Configuration configObj = new Configuration();
-		
-		
+
 		configObj.configure("hibernate.cfg.xml");
 		configObj.addAnnotatedClass(Student.class);
 		configObj.addAnnotatedClass(User.class);
@@ -49,25 +48,31 @@ public class AppMain {
 
 			Student stobj = new Student();
 
-			stobj.setRollNo(11);
-			stobj.setStudentName("Ram");
-			stobj.setStudentClass(5);
-			stobj.setAge(10);
+//			stobj.setRollNo(12);
+			stobj.setStudentName("monu");
+			stobj.setStudentClass(10);
+			stobj.setAge(18);
 
 			User userObj = new User();
 
-			userObj.setUserid(108);
-			userObj.setUsername("Shyam ");
-			userObj.setCreatedBy("Admin");
+//			userObj.setUserid(110);
+			userObj.setUsername("Sanjay");
+			userObj.setCreatedBy("IT");
 			userObj.setCreatedDate(new Date());
 
 //				sessionObj.save(userObj);
 
 			StudentDao sdiobj = new StudentDaoImpl();
-			sdiobj.saveStudent(stobj);
+//			sdiobj.saveStudent(stobj);
+//			sdiobj.getById(0);
+//			sdiobj.delete(11);
+			sdiobj.update(5);
 
 			UserDao udiobj = new UserDaoImpl();
-			udiobj.saveuser(userObj);
+//			udiobj.saveuser(userObj);
+//			udiobj.getById(4);
+//			udiobj.delete(108);
+			udiobj.update(6);
 
 			System.out.println("\n.......Records Saved Successfully To The Database.......\n");
 
@@ -76,7 +81,7 @@ public class AppMain {
 //		am.addStudent();
 //			sessionObj.save(stobj);
 
-			System.out.println("/n Student data saved succesfully /n");
+			// System.out.println("/n Student data saved succesfully /n");
 
 			// Committing The Transactions To The Database
 			sessionObj.getTransaction().commit();

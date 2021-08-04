@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -12,8 +14,9 @@ import javax.persistence.Table;
 public class User {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "user_id")
-	private Integer userid;
+	private int userid;
 
 	@Column(name = "user_name")
 	private String username;
@@ -24,7 +27,7 @@ public class User {
 	@Column(name = "created_date")
 	private Date createdDate;
 
-	public Integer getUserid() {
+	public int getUserid() {
 		return userid;
 	}
 
@@ -52,8 +55,14 @@ public class User {
 		this.createdDate = createdDate;
 	}
 
-	public void setUserid(Integer userid) {
+	public void setUserid(int userid) {
 		this.userid = userid;
+	}
+
+	@Override
+	public String toString() {
+		return "User [userid=" + userid + ", username=" + username + ", createdBy=" + createdBy + ", createdDate="
+				+ createdDate + "]";
 	}
 
 	

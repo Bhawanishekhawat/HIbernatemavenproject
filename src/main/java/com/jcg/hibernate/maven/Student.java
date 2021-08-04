@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,19 +19,20 @@ public class Student implements Serializable {
 	private static final long serialVersionUID = -9053446927758157619L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "Roll_No")
-	private Integer rollNo;
+	private int rollNo;
 
 	@Column(name = "Name")
 	private String studentName;
 
 	@Column(name = "Class_Standard")
-	private Integer studentClass;
+	private int studentClass;
 
 	@Column(name = "Student_Age")
-	private Integer age;
+	private int age;
 
-	public Integer getRollNo() {
+	public int getRollNo() {
 		return rollNo;
 	}
 
@@ -45,7 +48,7 @@ public class Student implements Serializable {
 		this.studentName = studentName;
 	}
 
-	public Integer getStudentClass() {
+	public int getStudentClass() {
 		return studentClass;
 	}
 
@@ -53,12 +56,18 @@ public class Student implements Serializable {
 		this.studentClass = studentClass;
 	}
 
-	public Integer getAge() {
+	public int getAge() {
 		return age;
 	}
 
 	public void setAge(Integer age) {
 		this.age = age;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [rollNo=" + rollNo + ", studentName=" + studentName + ", studentClass=" + studentClass
+				+ ", age=" + age + "]";
 	}
 
 }

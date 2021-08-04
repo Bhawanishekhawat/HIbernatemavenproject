@@ -22,5 +22,7 @@
 
 		<!-- Mapping With Model Class Containing Annotations -->
 		<mapping class="com.jcg.hibernate.maven.User" />
+		<mapping class="com.jcg.hibernate.maven.Student" />
+		
 	</session-factory>
 </hibernate-configuration>
