@@ -1,18 +1,18 @@
 package com.jcg.hibernate.maven;
 
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
-import com.jcg.hibernate.maven.dao.StudentDao;
-import com.jcg.hibernate.maven.dao.StudentDaoImpl;
-import com.jcg.hibernate.maven.dao.UserDao;
-import com.jcg.hibernate.maven.dao.UserDaoImpl;
 
-public class AppMain {
-
+public class HqlStudentMain {
+	
 	static Session sessionObj;
 	static SessionFactory sessionFactoryObj;
 
@@ -33,9 +33,6 @@ public class AppMain {
 		return sessionFactoryObj;
 	}
 
-	// static method
-	// addStudent
-
 	public static Session getSession() {
 		return buildSessionFactory().openSession();
 	}
@@ -46,42 +43,29 @@ public class AppMain {
 			sessionObj = buildSessionFactory().openSession();
 			sessionObj.beginTransaction();
 
+			Query qry = sessionObj.createQuery("from Student stobj");
+			List list = qry.list();
+			
+			System.out.println("total no of records in student  " + list.size());
+
+			Iterator itr = list.iterator();
+
+			while (itr.hasNext()) {
+
+				Object obj = itr.next();
+				Student stobj = (Student) obj;
+
+				System.out.println("student age " + stobj.getAge());
+//				System.out.println("student class " + stobj.getStudentClass());
+//				System.out.println("student Name " + stobj.getStudentName());
+				
+						}
+			
+					
 			Student stobj = new Student();
-
-//			stobj.setRollNo(12);
-			stobj.setStudentName("kamal");
-			stobj.setStudentClass(14);
-			stobj.setAge(20);
-
-			User userObj = new User();
-
-//			userObj.setUserid(110);
-			userObj.setUsername("jitesh");
-			userObj.setCreatedBy("HR");
-			userObj.setCreatedDate(new Date());
-
-//				sessionObj.save(userObj);
-
-			StudentDao sdiobj = new StudentDaoImpl();
-			sdiobj.saveStudent(stobj);
-//			sdiobj.getById(0);
-//			sdiobj.delete(11);
-//			sdiobj.update(5);
-
-			UserDao udiobj = new UserDaoImpl();
-			udiobj.saveuser(userObj);
-//			udiobj.getById(4);
-//			udiobj.delete(108);
-//			udiobj.update(6);
-
-			System.out.println("\n.......Records Saved Successfully To The Database.......\n");
-
-			// student method call
-//		AppMain  am = new AppMain();
-//		am.addStudent();
-//			sessionObj.save(stobj);
-
-			// System.out.println("/n Student data saved succesfully /n");
+			stobj.setStudentName("monu");
+			stobj.setStudentClass(10);
+			stobj.setAge(18);
 
 			// Committing The Transactions To The Database
 			sessionObj.getTransaction().commit();
@@ -97,4 +81,5 @@ public class AppMain {
 			}
 		}
 	}
+
 }

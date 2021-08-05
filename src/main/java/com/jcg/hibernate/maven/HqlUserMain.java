@@ -1,17 +1,21 @@
 package com.jcg.hibernate.maven;
 
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 import org.hibernate.service.ServiceRegistry;
 import com.jcg.hibernate.maven.dao.StudentDao;
 import com.jcg.hibernate.maven.dao.StudentDaoImpl;
 import com.jcg.hibernate.maven.dao.UserDao;
 import com.jcg.hibernate.maven.dao.UserDaoImpl;
 
-public class AppMain {
+public class HqlUserMain {
 
 	static Session sessionObj;
 	static SessionFactory sessionFactoryObj;
@@ -33,9 +37,6 @@ public class AppMain {
 		return sessionFactoryObj;
 	}
 
-	// static method
-	// addStudent
-
 	public static Session getSession() {
 		return buildSessionFactory().openSession();
 	}
@@ -46,42 +47,47 @@ public class AppMain {
 			sessionObj = buildSessionFactory().openSession();
 			sessionObj.beginTransaction();
 
-			Student stobj = new Student();
+			Query qry1 = sessionObj.createQuery("from User userObj");
+			List list1 = qry1.list();
+			System.out.println("total no of records in user " + list1.size());
 
-//			stobj.setRollNo(12);
-			stobj.setStudentName("kamal");
-			stobj.setStudentClass(14);
-			stobj.setAge(20);
+			Iterator it = list1.iterator();
+			while (it.hasNext()) {
+				Object o = it.next();
+				User uobj = (User) o;
+				System.out.println("User Name's are " + uobj.getUsername());
+			}
 
+			// select query HQL
+			Query qry = sessionObj.createQuery("select userObj from User userObj where userObj.username=:name");
+			qry.setParameter("name", "Sikha");
+			List l = qry.list();
+			System.out.println("Total Number Of Records : " + l.size());
+			
+			Iterator itr = l.iterator();
+			while (itr.hasNext()) {
+				Object o = (Object) itr.next();
+				User uobj = (User) o;
+				System.out.println("User Name : " + uobj.getUsername());
+				}
+			// delete query
+			Query qry2 = sessionObj.createQuery("delete from User where username=:name");
+			qry2.setParameter("name", "jitesh");
+			int result = qry2.executeUpdate();
+			System.out.println("no of records effected due to delete query " + result);
+			
+			// update query
+			Query qry3 = sessionObj.createQuery("update User set createdBy=:tech where userid=:id");
+//			qry3.setParameter("creat", "Head");
+			qry3.setParameter("id", 10);
+			int result3 = qry3.executeUpdate();
+			List l3 = qry3.list();
+			System.out.println("Total Number Of Records : " + l3.size());
+			
 			User userObj = new User();
-
-//			userObj.setUserid(110);
-			userObj.setUsername("jitesh");
-			userObj.setCreatedBy("HR");
+			userObj.setUsername("Sanjay");
+			userObj.setCreatedBy("IT");
 			userObj.setCreatedDate(new Date());
-
-//				sessionObj.save(userObj);
-
-			StudentDao sdiobj = new StudentDaoImpl();
-			sdiobj.saveStudent(stobj);
-//			sdiobj.getById(0);
-//			sdiobj.delete(11);
-//			sdiobj.update(5);
-
-			UserDao udiobj = new UserDaoImpl();
-			udiobj.saveuser(userObj);
-//			udiobj.getById(4);
-//			udiobj.delete(108);
-//			udiobj.update(6);
-
-			System.out.println("\n.......Records Saved Successfully To The Database.......\n");
-
-			// student method call
-//		AppMain  am = new AppMain();
-//		am.addStudent();
-//			sessionObj.save(stobj);
-
-			// System.out.println("/n Student data saved succesfully /n");
 
 			// Committing The Transactions To The Database
 			sessionObj.getTransaction().commit();
